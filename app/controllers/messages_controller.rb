@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
       @messages = Message.all
       flash.now[:alert] ="メッセージの保存に失敗しました。"
       render 'index'
+    end
   end
   
   def edit
@@ -27,13 +28,13 @@ class MessagesController < ApplicationController
     else
       #保存に失敗した場合は編集画面へ戻す
       render 'edit'
+    end
   end
     
   def destroy
     @message.destroy
     redirect_to root_path, notice: 'メッセージを削除しました'
   end
-end
 
 
   private
@@ -44,7 +45,6 @@ end
     @message = Message.find(params[:id])
   end
   ##ここまで
-end
 end
 
 #8.6削除機能の実装でエラー
