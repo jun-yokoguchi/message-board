@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     #Messageを全て取得する。
     @messages = Message.all
   end
-  
+
   def create
     @message = Message.new(message_params)
     if @message.save
@@ -39,12 +39,10 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:name, :body)
+    params.require(:message).permit(:name, :age, :body)
   end
   def set_message
     @message = Message.find(params[:id])
   end
   ##ここまで
 end
-
-#8.6削除機能の実装でエラー
